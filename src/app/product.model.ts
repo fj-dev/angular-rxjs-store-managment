@@ -8,10 +8,10 @@ export interface IProduct {
 
 export class Product {
   id;
-  name = '';
-  price = 0;
-  description = '';
-  quantity = 0;
+  name;
+  price;
+  description;
+  quantity;
   constructor(vals?: IProduct) {
     if (vals) {
       this.id = vals.id ? vals.id : undefined;
@@ -19,6 +19,11 @@ export class Product {
       this.price = vals.price ? vals.price : 0;
       this.description = vals.description ? vals.description : '';
       this.quantity = vals.quantity ? vals.quantity : 0;
+    } else {
+      this.name = '';
+      this.price = 0;
+      this.description = '';
+      this.quantity = 0;
     }
   }
 
