@@ -1,0 +1,16 @@
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="card-title text-bold h5">{{product.title}}</div>
+    <div class="card-subtitle text-muted h6">{{product.description}}</div>
+    <div class="card-text">
+      <span>Price: </span>
+      <span class="text-danger font-weight-bold">$ {{product.price}}</span>
+    </div>
+    <div class="card-text">
+      <small>Quantity: <b>{{product.quantity}}</b></small>
+    </div>
+    <button type="button" [attr.disabled]="product.isInStock">
+      Add to Cart
+    </button>
+  </div>
+</div>
