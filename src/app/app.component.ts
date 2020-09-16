@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { ProductsStoreService } from './products-store.service';
+import { CartStoreService } from './cart-store.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,13 @@ import { ProductsStoreService } from './products-store.service';
   styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent  {
-  constructor( public productsStore: ProductsStoreService ) {}
+  constructor( public productsStore: ProductsStoreService, 
+  public cartStore: CartStoreService ) {}
+
+  onRemoveCartItem(arg) {
+    const product = this.cartStore.removeItem(arg);
+    this.productsStore.restockProduct(product);
+  }
 }
 
 

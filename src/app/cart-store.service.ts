@@ -31,9 +31,12 @@ export class CartStoreService {
     this._setCartItems(items);
   }
 
-  removeItem(product: Product): void {
-    const items = this.getCartItems().filter(item => item.id !== product.id);
+  removeItem(idx): Product {
+    const product = this.getCartItems()[idx];
+    const items = this.getCartItems().filter(
+      (item, currIdx) => currIdx !== idx);
     this._setCartItems(items);
+    return product;
   }
 
   clearCart() {

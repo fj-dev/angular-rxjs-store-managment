@@ -1,5 +1,10 @@
 <div class="h2 mt-1 text-center">Cart</div>
-<div class="ml-3" *ngFor="let item of cartStore.cartItems$ | async">
-  <span>{{ item.name }}</span>
-  <span>{{ item.price | currency }}</span>
+<div class="list-group">
+  <div class="list-group-item" *ngFor="let item of cartStore.cartItems$ | async; index as cartItemIdx">
+    <div class="d-flex w-100 justify-content-between">
+      <div class="h5 font-weight-bold">{{ item.name }}</div>
+      <div class="text-primary font-weight-bold">{{ item.price | currency }}</div>
+    </div>
+    <button type="button" class="btn btn-danger btn-sm" (click)="removeCartItem.emit(cartItemIdx)">Remove</button>
+  </div>
 </div>

@@ -40,6 +40,18 @@ export class ProductsStoreService {
     this._setProducts(products);
   }
 
+  restockProduct(product: Product): void {
+    const products = this.getProducts().map(p => {
+      if (p.id === product.id) {
+        const newProduct = new Product(p);
+        newProduct.quantity++;
+        return newProduct;
+      } else {
+        return p;
+      }
+    });
+    this._setProducts(products);
+  }
   updateProductQuantity(product: Product): void {
     const products = this.getProducts().map(p => 
     {
