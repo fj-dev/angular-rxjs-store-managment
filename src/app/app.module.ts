@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { ProductDetailsComponent } from './product-list/product-details/product-details.component';
+import { ProductListItemComponent } from './product-list/product-list-item/product-list-item.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-    ])
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
     TopBarComponent,
     ProductListComponent,
+    ProductListItemComponent,
     ProductDetailsComponent
   ],
   bootstrap: [ AppComponent ]

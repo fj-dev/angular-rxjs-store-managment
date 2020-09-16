@@ -9,7 +9,7 @@
     <div class="card-text">
       <small>Quantity: <b>{{product.quantity}}</b></small>
     </div>
-    <button type="button" [attr.disabled]="product.isInStock">
+    <button type="button" [attr.disabled]="product.isInStock" (click)="add.emit(product)">
       Add to Cart
     </button>
   </div>
