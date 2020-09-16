@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Product } from '../product.model';
-import { products } from '../products';
+import { ProductsStoreService } from '../products-store.service';
 
 @Component({
   selector: 'app-product-details',
@@ -13,12 +12,14 @@ export class ProductDetailsComponent implements OnInit {
   product;
   constructor(
     private route: ActivatedRoute,
+    public productsStore: ProductsStoreService,
   ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.product = products[+params.get('productId')];
-    })
+      let prod = this.productsStore.getProducts().filter(p => p.id === params.get('productId'))[0];
+      this.product = prod;
+    });
   }
 
 }
