@@ -26,8 +26,4 @@ export class Product {
       this.quantity = 0;
     }
   }
-
-  get isInStock(): boolean {
-    return this.quantity > 0;
-  }
 }
