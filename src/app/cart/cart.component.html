@@ -1,5 +1,5 @@
 <div class="h2 mt-1 text-center">Cart</div>
-<div class="ml-3" *ngFor="let item of items">
+<div class="ml-3" *ngFor="let item of cartStore.cartItems$ | async">
   <span>{{ item.name }}</span>
   <span>{{ item.price | currency }}</span>
 </div>
