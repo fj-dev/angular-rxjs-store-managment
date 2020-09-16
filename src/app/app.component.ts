@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 
+import { ProductsStoreService } from './products-store.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.scss' ]
 })
-export class AppComponent  {}
+export class AppComponent  {
+  constructor( public productsStore: ProductsStoreService ) {}
+}
 
 
 /*

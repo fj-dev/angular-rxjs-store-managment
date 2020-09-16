@@ -1,19 +1,23 @@
-<div class="card mb-3">
+<div class="card w-100 ml-2 mb-3">
   <div class="card-body">
-    <div class="card-title text-bold h5">{{product.name}}</div>
-    <div class="card-subtitle text-muted h6">{{product.description}}</div>
-    <a
-      [title]="product.name + ' details'"
-      [routerLink]="['/products', product.id]" class="card-link">View Details</a>
-    <!--<div class="card-text">
-      <span>Price: </span>
-      <span class="text-danger font-weight-bold">$ {{product.price}}</span>
+    <div class="card-subtitle">
+      <div class="row">
+        <div class="col font-weight-bold h5">{{ product.name }}</div>
+        <div class="col h6 text-right">{{ product.price | currency }}</div>
+      </div>
     </div>
-    <div class="card-text">
-      <small>Quantity: <b>{{product.quantity}}</b></small>
+    <div class="row">
+      <div class="col">
+        <a
+          [title]="product.name + ' details'"
+          [routerLink]="['/products', product.id]"
+          class="card-link small">
+          View Details
+        </a>
+      </div>
+      <div class="col card-text small text-right text-muted">
+        Quantity: {{ product.quantity }}
+      </div>
     </div>
-    <button type="button" [attr.disabled]="product.isInStock" (click)="add.emit(product)">
-      Add to Cart
-    </button>-->
   </div>
 </div>

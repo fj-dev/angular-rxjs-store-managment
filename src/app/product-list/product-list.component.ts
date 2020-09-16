@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { products } from '../products';
 
+import { ProductsStoreService } from '../products-store.service';
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -9,13 +11,11 @@ import { products } from '../products';
 })
 export class ProductListComponent {
   products = products;
-
-  share() {
-    window.alert('The product has been shared!');
-  }
+  
+  constructor( public productsStore: ProductsStoreService ) {}
 
   onAdd(args) {
-    
+
   }
 }
 

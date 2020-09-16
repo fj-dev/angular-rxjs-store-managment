@@ -1,6 +1,6 @@
-<h2>Products</h2>
+<div class="h2 font-weight-bold mt-2">Products</div>
 <app-product-list-item
-  *ngFor="let product of products"
+  *ngFor="let product of productsStore.products$ | async"
   [product]=product
   (add)="onAdd($event)">
 </app-product-list-item>
