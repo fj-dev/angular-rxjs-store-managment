@@ -1,0 +1,14 @@
+<div class="h2 text-muted">Product Details</div>
+<div class="row ml-2 w-40">
+  <div class="h3 font-weight-bold">
+    {{ product.name }}
+  </div>
+  <div class="h5 font-weight-bold">
+    {{ product.price | currency }}
+  </div>
+  <div class="mt-2">
+    {{ product.descripiton }}
+  </div>
+  <div class="text-small">Quantity in Stock: <b>{{ product.quantity }}</b></div>
+  <button type="button" [attr.disabled]="product.isInStock" (click)="add.emit(product)">Add to Cart</button>
+</div>

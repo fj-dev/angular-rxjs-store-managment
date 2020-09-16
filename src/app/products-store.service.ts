@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 
 import { IProduct, Product } from './product.model';
+import { ProductsService } from './products.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,9 @@ export class ProductsStoreService {
   // Exposed observable (read-only).
   readonly products$ = this._productsSource.asObservable();
 
-  constructor() {}
+  constructor( private productsService: ProductsService ) {
+    this.fetchAll();
+  }
 
   // Get last value without subscribing to the products$ observable (synchronously).
   getProducts(): Product[] {
@@ -42,6 +45,11 @@ export class ProductsStoreService {
     const products = this.getProducts().map(p =>
       p.id === product.id ? new Product({ ...p, ...{ quantity: newQuantity } }) : p
     );
+    this._setProducts(products);
+  }
+
+  private fetchAll() {
+    const products = this.productsService.getAllProducts();
     this._setProducts(products);
   }
 }
