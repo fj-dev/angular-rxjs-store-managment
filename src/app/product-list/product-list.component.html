@@ -2,7 +2,7 @@
 <app-product-list-item
   *ngFor="let product of productsStore.products$ | async"
   [product]=product
-  (add)="onAdd($event)">
+  (addToCart)="onAddToCart($event)">
 </app-product-list-item>
 
 

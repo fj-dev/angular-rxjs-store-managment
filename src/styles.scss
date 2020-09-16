@@ -15,10 +15,11 @@ body {
 .container {
   display: flex;
   flex-direction: row;
+  max-width: unset;
 }
 
 router-outlet + *  {
-  padding: 0 16px;
+//  padding: 0 16px;
 }
 
 /* Text */

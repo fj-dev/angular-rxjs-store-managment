@@ -41,10 +41,16 @@ export class ProductsStoreService {
   }
 
   updateProductQuantity(product: Product): void {
-    const newQuantity = product.quantity - 1;
-    const products = this.getProducts().map(p =>
-      p.id === product.id ? new Product({ ...p, ...{ quantity: newQuantity } }) : p
-    );
+    const products = this.getProducts().map(p => 
+    {
+      if (p.id === product.id) {
+        const newProduct = new Product(p);
+        newProduct.quantity--;
+        return newProduct;
+      } else {
+        return p;
+      }
+    });
     this._setProducts(products);
   }
 

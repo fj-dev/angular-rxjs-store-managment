@@ -9,7 +9,7 @@ import { Product } from '../../product.model';
 })
 export class ProductListItemComponent implements OnInit, OnDestroy {
   @Input() product: Product;
-  @Output() add = new EventEmitter();
+  @Output() addToCart = new EventEmitter();
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class ProductListItemComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.add.complete();
+    this.addToCart.complete();
   }
 
 }

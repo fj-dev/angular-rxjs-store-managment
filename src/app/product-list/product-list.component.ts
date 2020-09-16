@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
-import { products } from '../products';
-
 import { ProductsStoreService } from '../products-store.service';
+import { CartStoreService } from '../cart-store.service';
+
+import { Product } from '../product.model';
 
 @Component({
   selector: 'app-product-list',
@@ -10,12 +11,15 @@ import { ProductsStoreService } from '../products-store.service';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
-  products = products;
+  constructor(
+    private productsStore: ProductsStoreService,
+    private cartStore: CartStoreService
+  ) {}
   
-  constructor( public productsStore: ProductsStoreService ) {}
-
-  onAdd(args) {
-
+  onAddToCart(args) {
+    const item = new Product(args);
+    this.cartStore.addItem(item);
+    this.productsStore.updateProductQuantity(args);
   }
 }
 

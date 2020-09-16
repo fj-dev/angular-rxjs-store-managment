@@ -16,8 +16,9 @@
         </a>
       </div>
       <div class="col card-text small text-right text-muted">
-        Quantity: {{ product.quantity }}
+        Stock Quantity: {{ product.quantity }}
       </div>
     </div>
+    <button type="button" class="float-right btn btn-sm btn-primary" (click)="addToCart.emit(product)">Add to Cart</button>
   </div>
 </div>
