@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, EventEmitter, Output } from '@angular/cor
 import { ActivatedRoute } from '@angular/router';
 
 import { ProductsStoreService } from '../products-store.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -13,6 +14,7 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public productsStore: ProductsStoreService,
+    private cartService: CartService
   ) { }
 
   ngOnInit() {
@@ -20,6 +22,10 @@ export class ProductDetailsComponent implements OnInit {
       let prod = this.productsStore.getProducts().filter(p => p.id === params.get('productId'))[0];
       this.product = prod;
     });
+  }
+
+  addToCart(product) {
+    this.cartService.addToCart(product);
   }
 
 }

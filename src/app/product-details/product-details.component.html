@@ -10,5 +10,5 @@
 		{{ product.description }}
 	</div>
 	<div class="small mb-2">Quantity in Stock: <b>{{ product.quantity }}</b></div>
-	<button type="button" [attr.disabled]="product.isInStock" (click)="add.emit(product)">Add to Cart</button>
+	<button type="button" [attr.disabled]="product.isInStock" (click)="addToCart(product)">Add to Cart</button>
 </div>
