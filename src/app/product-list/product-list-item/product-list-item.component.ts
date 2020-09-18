@@ -13,6 +13,13 @@ export class ProductListItemComponent implements OnInit, OnDestroy {
 
   constructor() { }
 
+  get isOutOfStock() {
+    if (this.product && this.product.quantity < 1) {
+      return true;
+    } else {
+      return;
+    }
+  }
   ngOnInit() {
   }
 

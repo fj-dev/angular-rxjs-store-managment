@@ -27,6 +27,14 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
+  get isOutOfStock() {
+    if (this.product && this.product.quantity < 1) {
+      return true;
+    } else {
+      return;
+    }
+  }
+
   addToCart(product) {
     const item = new Product(product);
     this.cartService.addItem(item);
